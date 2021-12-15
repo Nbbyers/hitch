@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lift/Models/Singleton.dart';
 import 'package:lift/Models/ride_model.dart';
+import 'package:lift/Models/user_model.dart';
 import 'package:lift/Widgets/account_widget.dart';
 import 'package:lift/Widgets/hamburger_menu.dart';
 import 'package:lift/screens/dashboard.dart';
@@ -24,6 +25,7 @@ class _CreateRideState extends State<CreateRidePage> {
   _submitRide() {
     String key = "1234";
     RideModel aRide = new RideModel(mySingleton.myUser, destinationResort, meetupSpot, meetupTime, availableSeats, returningTime, key);
+    addRider(aRide);
     mySingleton.myUser.myDrives.add(aRide);
     Navigator.push(
       context,
@@ -170,6 +172,16 @@ class _CreateRideState extends State<CreateRidePage> {
         ],
       ),
     );
+  }
+
+  addRider(RideModel ride) {
+    UserModel user1 = new UserModel();
+    user1.name = "Matt";
+    UserModel user2 = new UserModel();
+    user2.name = "Joey";
+
+    ride.addRider(user1, "pending");
+    ride.addRider(user2, "pending");
   }
 
 }

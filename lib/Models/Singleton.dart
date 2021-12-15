@@ -4,8 +4,10 @@ import 'package:lift/Models/ride_model.dart';
 import 'package:lift/Models/user_model.dart';
 
 class Singleton {
+  RideModel currentRide;
+  bool riding;
   factory Singleton() {return _singleton;}
-  Singleton.internal();
+  Singleton.internal() {riding = false;}
   static final Singleton _singleton = Singleton.internal();
 
   UserModel myUser;

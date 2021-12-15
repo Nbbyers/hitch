@@ -28,10 +28,7 @@ class HamburgerMenu extends StatelessWidget{
               accountName: Text("name"),
               accountEmail: Text("email"),
               currentAccountPicture: CircleAvatar(
-                backgroundColor:
-                Theme.of(context).platform == TargetPlatform.iOS
-                    ? Colors.blue
-                    : Colors.white,
+                backgroundColor: Color.fromRGBO(0, 37, 57, 100),
                 child: Text(
                   "N",
                   style: TextStyle(fontSize: 40.0),

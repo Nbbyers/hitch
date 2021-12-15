@@ -6,6 +6,7 @@ import 'package:lift/Models/ride_model.dart';
 import 'package:lift/Widgets/account_widget.dart';
 import 'package:lift/Widgets/hamburger_menu.dart';
 import 'package:lift/screens/dashboard.dart';
+import 'package:lift/screens/riding_map_page.dart';
 
 import 'browse_rides.dart';
 
@@ -20,45 +21,105 @@ class RidingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(0, 37, 57, 100),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(0, 76, 118, 100),
         title: Text(myRide.driver.name + "'s Ride"),
         actions: <Widget>[
           AccountWidget(),
         ],
       ),
       drawer: HamburgerMenu(),
-      body: Column (
+      body: Padding (
+        padding: EdgeInsets.fromLTRB(0,4,0,0),
+        child: Column (
+          children: [
+            Text(
+                myRide.meetupSpot + " to " + myRide.destinationResort + "           ",
+                style: TextStyle (
+                    backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                    fontSize: 35,
+                    color: Colors.white
+                )
+            ),
+            Text(
+                "Meet up time: " + myRide.meetupTime + "                       ",
+                style: TextStyle (
+                    backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                    fontSize: 25,
+                    color: Colors.white
+                )
+            ),
+            Text(
+                "Available seats: " + myRide.availableSeats.toString() + "                                 ",
+                style: TextStyle (
+                    backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                    fontSize: 25,
+                    color: Colors.white
+                )
+            ),
+            Text(
+                "Leaving resort around: " + myRide.returningTime + "                 ",
+                style: TextStyle (
+                    backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                    fontSize: 25,
+                    color: Colors.white
+                )
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
         children: [
-          Text(myRide.meetupSpot + " to " + myRide.destinationResort),
-          Text("Meet up time: " + myRide.meetupTime),
-          Text("Available seats: " + myRide.availableSeats.toString()),
-          Text("Leaving resort around: " + myRide.returningTime),
-          Row(
-            children: [
-              FloatingActionButton(
-                child: Text("Back"),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Dashboard()),
-                  );
-                },
+          Positioned(
+            left: 30,
+            bottom: 20,
+            child: FloatingActionButton(
+              backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+              heroTag: 'Back',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Dashboard()),
+                );
+              },
+              child: Icon(
+                Icons.arrow_left,
+                size: 40,
               ),
-              FloatingActionButton(
-                child: Text("Request Rides"),
-                onPressed: () {
-                  mySingleton.myUser.myRides.add(myRide);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Dashboard()),
-                  );
-                },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
-            ],
-          )
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            right: 30,
+            child: FloatingActionButton(
+              backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+              heroTag: 'Map',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => RidingMapPage(myRide)),
+                );
+              },
+              child: Icon(
+                Icons.map_outlined,
+                size: 40,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          // Add more floating buttons if you want
+          // There is no limit
         ],
       ),
-
     );
   }
 

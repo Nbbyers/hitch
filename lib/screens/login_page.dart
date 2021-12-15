@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lift/Models/Singleton.dart';
 import 'package:lift/Models/user_model.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -52,11 +52,14 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           //mainAxisSize: MainAxisSize.min,
           children: [
+            /*
             SvgPicture.network(
               mtnUrl,
               placeholderBuilder: (context) => CircularProgressIndicator(),
               height: 128.0,
             ),
+
+             */
             Text(
               "Hitch",
               style: TextStyle(
