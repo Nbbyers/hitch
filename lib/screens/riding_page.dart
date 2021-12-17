@@ -34,37 +34,49 @@ class RidingPage extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(0,4,0,0),
         child: Column (
           children: [
-            Text(
-                myRide.meetupSpot + " to " + myRide.destinationResort + "           ",
-                style: TextStyle (
-                    backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-                    fontSize: 35,
-                    color: Colors.white
-                )
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                  myRide.meetupSpot + " to " + myRide.destinationResort + "           ",
+                  style: TextStyle (
+                      backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                      fontSize: 35,
+                      color: Colors.white
+                  )
+              ),
             ),
-            Text(
-                "Meet up time: " + myRide.meetupTime + "                       ",
-                style: TextStyle (
-                    backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-                    fontSize: 25,
-                    color: Colors.white
-                )
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                  "Meet up time: " + myRide.meetupTime + "                       ",
+                  style: TextStyle (
+                      backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                      fontSize: 25,
+                      color: Colors.white
+                  )
+              ),
             ),
-            Text(
-                "Available seats: " + myRide.availableSeats.toString() + "                                 ",
-                style: TextStyle (
-                    backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-                    fontSize: 25,
-                    color: Colors.white
-                )
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                  "Available seats: " + myRide.availableSeats.toString() + "                                 ",
+                  style: TextStyle (
+                      backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                      fontSize: 25,
+                      color: Colors.white
+                  )
+              ),
             ),
-            Text(
-                "Leaving resort around: " + myRide.returningTime + "                 ",
-                style: TextStyle (
-                    backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-                    fontSize: 25,
-                    color: Colors.white
-                )
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                  "Leaving resort around: " + myRide.returningTime + "                 ",
+                  style: TextStyle (
+                      backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                      fontSize: 25,
+                      color: Colors.white
+                  )
+              ),
             ),
           ],
         ),
@@ -87,6 +99,28 @@ class RidingPage extends StatelessWidget {
               },
               child: Icon(
                 Icons.arrow_left,
+                size: 40,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 170,
+            bottom: 20,
+            child: FloatingActionButton(
+              backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+              heroTag: 'Delete',
+              onPressed: () {
+                mySingleton.myUser.myRides.remove(myRide);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Dashboard()),
+                );
+              },
+              child: Icon(
+                Icons.delete,
                 size: 40,
               ),
               shape: RoundedRectangleBorder(

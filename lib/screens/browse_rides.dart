@@ -30,12 +30,15 @@ class _BrowseRidesState extends State<BrowseRidesPage> {
       drawer: HamburgerMenu(),
       body: Column (
         children: [
-          Text(
-            "          Choose a Ride                 ",
-            style: TextStyle (
-                backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-                fontSize: 30,
-                color: Colors.white
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+            child: Text(
+              "          Choose a Ride                 ",
+              style: TextStyle (
+                  backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                  fontSize: 30,
+                  color: Colors.white
+              ),
             ),
           ),
           SingleChildScrollView(

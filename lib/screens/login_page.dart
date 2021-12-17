@@ -32,6 +32,7 @@ class _LoginPageState extends State<LoginPage> {
     try {
       mySingleton.myUser =  new UserModel();
       mySingleton.myUser.username = _email;
+      mySingleton.myUser.name = "Nate";
       UserCredential userCredential = await FirebaseAuth
           .instance
           .signInWithEmailAndPassword(email: _email, password: _password);
@@ -85,26 +86,32 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextField(
-                  onChanged: (value) {
-                    _email = value;
-                    print(_email);
-                  },
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    hintText: "Enter email...",
-                  ),
-                ),
-                TextField(
-                  onChanged: (value) {
-                    _password = value;
-                    print(_password);
-                  },
-                  decoration: InputDecoration(
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TextField(
+                    onChanged: (value) {
+                      _email = value;
+                      print(_email);
+                    },
+                    decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
-                      hintText: "Enter password..."
+                      hintText: "Enter email...",
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TextField(
+                    onChanged: (value) {
+                      _password = value;
+                      print(_password);
+                    },
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        hintText: "Enter password..."
+                    ),
                   ),
                 ),
               ],

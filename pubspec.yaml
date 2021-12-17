@@ -33,7 +33,7 @@ dependencies:
   firebase_auth: ^3.2.0
   flutter_signin_button: ^2.0.0
   google_maps_flutter: 2.0.9
-  #flutter_svg: ^1.0.0
+  #flutter_svg: ^0.18.0
 
 dev_dependencies:
   flutter_test:
@@ -51,9 +51,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+     - lib/images/mtn.png
+     - lib/images/mtn_blue-01.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

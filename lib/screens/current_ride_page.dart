@@ -108,6 +108,7 @@ class CurrentRidePage extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
+                        mySingleton.riding = false;
                         mySingleton.myUser.myRides.remove(myRide);
                         mySingleton.myUser.myDrives.remove(myRide);
                         Navigator.push(

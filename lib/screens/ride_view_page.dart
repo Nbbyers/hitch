@@ -30,40 +30,52 @@ class RideViewPage extends StatelessWidget {
       ),
       drawer: HamburgerMenu(),
       body: Padding (
-        padding: EdgeInsets.fromLTRB(0,4,0,0),
+        padding: EdgeInsets.fromLTRB(0,5,0,0),
         child: Column (
           children: [
-            Text(
-              myRide.meetupSpot + " to " + myRide.destinationResort + "           ",
-              style: TextStyle (
-                backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-                fontSize: 35,
-                color: Colors.white
-              )
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                myRide.meetupSpot + " to " + myRide.destinationResort + "           ",
+                style: TextStyle (
+                  backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                  fontSize: 35,
+                  color: Colors.white
+                )
+              ),
             ),
-            Text(
-              "Meet up time: " + myRide.meetupTime + "                       ",
-              style: TextStyle (
-                backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-                fontSize: 25,
-                color: Colors.white
-              )
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                "Meet up time: " + myRide.meetupTime + "                       ",
+                style: TextStyle (
+                  backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                  fontSize: 25,
+                  color: Colors.white
+                )
+              ),
             ),
-            Text(
-              "Available seats: " + myRide.availableSeats.toString() + "                                 ",
-              style: TextStyle (
-                backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-                fontSize: 25,
-                color: Colors.white
-              )
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                "Available seats: " + myRide.availableSeats.toString() + "                                 ",
+                style: TextStyle (
+                  backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                  fontSize: 25,
+                  color: Colors.white
+                )
+              ),
             ),
-            Text(
-              "Leaving resort around: " + myRide.returningTime + "                 ",
-              style: TextStyle (
-                backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-                fontSize: 25,
-                color: Colors.white
-              )
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                "Leaving resort around: " + myRide.returningTime + "                 ",
+                style: TextStyle (
+                  backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                  fontSize: 25,
+                  color: Colors.white
+                )
+              ),
             ),
           ],
         ),

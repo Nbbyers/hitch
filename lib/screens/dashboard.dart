@@ -10,6 +10,7 @@ import 'package:lift/screens/browse_rides.dart';
 import 'package:lift/screens/create_ride.dart';
 import 'package:lift/screens/riding_page.dart';
 
+import 'current_ride_page.dart';
 import 'driving_page.dart';
 
 class Dashboard extends StatefulWidget {
@@ -36,34 +37,46 @@ class _DashboardState extends State<Dashboard> {
         //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Text(
-            "              My Drives                 ",
-            style: TextStyle (
-              backgroundColor: Color.fromRGBO(0, 140, 216, 100),
-              fontSize: 30,
-              color: Colors.white
-            ),
-          ),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                showDrivingList(),
-              ],
-            ),
-          ),
-          Text(
-            "              My Rides                 ",
-            style: TextStyle (
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+            child: Text(
+              "              My Drives                 ",
+              style: TextStyle (
                 backgroundColor: Color.fromRGBO(0, 140, 216, 100),
                 fontSize: 30,
                 color: Colors.white
+              ),
             ),
           ),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                showRideList(),
-              ],
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  showDrivingList(),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+            child: Text(
+              "              My Rides                 ",
+              style: TextStyle (
+                  backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+                  fontSize: 30,
+                  color: Colors.white
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  showRideList(),
+                ],
+              ),
             ),
           ),
         ],
@@ -93,6 +106,7 @@ class _DashboardState extends State<Dashboard> {
               ),
             ),
           ),
+          showCurrentRideButton(),
           Positioned(
             bottom: 20,
             right: 30,
@@ -123,7 +137,38 @@ class _DashboardState extends State<Dashboard> {
   }
 
 
-
+  Widget showCurrentRideButton()
+  {
+    if (mySingleton.myUser == null) {
+      mySingleton.myUser = new UserModel();
+    }
+    if (mySingleton.riding == true) {
+      return Positioned(
+        left: 170,
+        bottom: 20,
+        child: FloatingActionButton(
+          backgroundColor: Color.fromRGBO(0, 140, 216, 100),
+          heroTag: 'viewRide',
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CurrentRidePage(mySingleton.currentRide)),
+            );
+          },
+          child: Icon(
+            Icons.map_outlined,
+            size: 40,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      );
+    }
+    else {
+      return SizedBox.shrink();
+    }
+  }
 
 
   Widget showDrivingList()
@@ -176,7 +221,7 @@ class _DashboardState extends State<Dashboard> {
     } else {
       return Center(
         child: Text(
-          "    You don't have any drives    ",
+          " You don't have any drives ",
           textAlign: TextAlign.center,
           style: TextStyle(
               fontSize: 22.0,
@@ -239,7 +284,7 @@ class _DashboardState extends State<Dashboard> {
     } else {
       return Center(
         child: Text(
-          "      You don't have any rides      ",
+          " You don't have any rides ",
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 22.0,

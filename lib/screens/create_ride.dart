@@ -50,59 +50,74 @@ class _CreateRideState extends State<CreateRidePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              onChanged: (value) {
-                destinationResort = value;
-                print(destinationResort);
-              },
-              decoration: InputDecoration(
-                hintText: "Enter Resort...",
-                fillColor: Colors.white,
-                filled: true,
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: TextField(
+                onChanged: (value) {
+                  destinationResort = value;
+                  print(destinationResort);
+                },
+                decoration: InputDecoration(
+                  hintText: "Enter Resort...",
+                  fillColor: Colors.white,
+                  filled: true,
+                ),
               ),
             ),
-            TextField(
-              onChanged: (value) {
-                meetupSpot = value;
-                print(meetupSpot);
-              },
-              decoration: InputDecoration(
-                hintText: "Enter meetup spot...",
-                fillColor: Colors.white,
-                filled: true,
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: TextField(
+                onChanged: (value) {
+                  meetupSpot = value;
+                  print(meetupSpot);
+                },
+                decoration: InputDecoration(
+                  hintText: "Enter meetup spot...",
+                  fillColor: Colors.white,
+                  filled: true,
+                ),
               ),
             ),
-            TextField(
-              onChanged: (value) {
-                meetupTime = value;
-                print(meetupTime);
-              },
-              decoration: InputDecoration(
-                hintText: "Enter meetup time...",
-                fillColor: Colors.white,
-                filled: true,
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: TextField(
+                onChanged: (value) {
+                  meetupTime = value;
+                  print(meetupTime);
+                },
+                decoration: InputDecoration(
+                  hintText: "Enter meetup time...",
+                  fillColor: Colors.white,
+                  filled: true,
+                ),
               ),
             ),
-            TextField(
-              onChanged: (value) {
-                availableSeats = int.parse(value);
-                print(availableSeats);
-              },
-              decoration: InputDecoration(
-                hintText: "How many seats do you have?",
-                fillColor: Colors.white,
-                filled: true,
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: TextField(
+                onChanged: (value) {
+                  availableSeats = int.parse(value);
+                  print(availableSeats);
+                },
+                decoration: InputDecoration(
+                  hintText: "How many seats do you have?",
+                  fillColor: Colors.white,
+                  filled: true,
+                ),
               ),
             ),
-            TextField(
-              onChanged: (value) {
-                returningTime = value;
-                print(returningTime);
-              },
-              decoration: InputDecoration(
-                hintText: "When are you leaving the resort",
-                fillColor: Colors.white,
-                filled: true,
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: TextField(
+                onChanged: (value) {
+                  returningTime = value;
+                  print(returningTime);
+                },
+                decoration: InputDecoration(
+                  hintText: "When are you leaving the resort",
+                  fillColor: Colors.white,
+                  filled: true,
+                ),
               ),
             ),
           ],
